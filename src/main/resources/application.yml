@@ -3,6 +3,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/test
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
     show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+
+server:
+  port: 8000
