@@ -11,6 +11,7 @@ import springboottesting.dto.response.ExceptionResponse;
 import springboottesting.model.Car;
 import springboottesting.service.CarService;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class CarAPI {
     private final CarService carService;
 
     // save
-    @PostMapping("/save")
+    @PostMapping
     Car save(@RequestBody @Valid CarRequest carRequest) {
         return carService.save(carRequest);
     }
@@ -36,7 +37,7 @@ public class CarAPI {
     }
 
     // find by id
-    @GetMapping("/find/{carId}")
+    @GetMapping("/{carId}")
     Car findById(@PathVariable Long carId) {
         return carService.findById(carId);
     }
@@ -58,5 +59,13 @@ public class CarAPI {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     ExceptionResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException methodArgumentNotValidException) {
         return new ExceptionResponse(methodArgumentNotValidException.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    ExceptionResponse handleEntityNotFoundExceptionException(EntityNotFoundException entityNotFoundException) {
+        return new ExceptionResponse(
+                "not found"
+        );
     }
 }

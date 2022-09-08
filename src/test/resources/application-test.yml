@@ -1,11 +1,20 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:mydb
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
     username: sa
-    password: password
-    driverClassName: org.h2.Driver
+    password:
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: create
     show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+
+app:
+  jwt:
+    secret: thisisverysecret
+    issuer: Java Five
+    expiresAfterDays: 30
+
+server:
+  port: 8000

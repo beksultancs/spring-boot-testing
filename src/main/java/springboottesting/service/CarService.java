@@ -1,6 +1,7 @@
 package springboottesting.service;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import springboottesting.dto.request.CarRequest;
@@ -14,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CarService {
 
-    private final CarRepository carRepository;
+    private CarRepository carRepository;
 
     public Car save(CarRequest carRequest) {
 

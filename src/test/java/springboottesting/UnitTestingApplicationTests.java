@@ -8,6 +8,7 @@ class UnitTestingApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }

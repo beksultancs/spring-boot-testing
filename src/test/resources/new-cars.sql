@@ -1,5 +1,0 @@
-INSERT INTO cars (brand, model, price) VALUES ('Mercedes', 'C Class', 110000.00)
-INSERT INTO cars (brand, model, price) VALUES ('Toyota', 'Land Cruiser', 80000.00)
-INSERT INTO cars (brand, model, price) VALUES ('Bugatti', 'Veyron', 200000.00)
-INSERT INTO cars (brand, model, price) VALUES ('Lexus', 'L500', 140000.00)
-INSERT INTO cars (brand, model, price) VALUES ('Tesla', 'Model Y', 90000.00)
